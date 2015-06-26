@@ -1,0 +1,136 @@
+<?page id="mainPage" title="WILLKOMEN" contentType="text/html;charset=utf-8"?>
+<zk>
+	<style>
+		.z-tree-icon .z-tree-open {
+		background-image:
+		url('../public/imagenes/generales/cerrado.png');
+		background-repeat:no-repeat;
+		background-size: cover;
+		width: 100%;
+		}
+
+		.z-tree-icon
+		.z-tree-close {
+		background-image:
+		url('../public/imagenes/generales/abierto.png');
+		background-repeat:no-repeat;
+		background-size: cover;
+		width: 100%;
+		}
+		/*remove the font awesome icon*/
+		.z-tree-icon .z-tree-open::before,
+		.z-tree-icon .z-tree-close::before {
+		content: '';
+		} 
+          
+		span.z-tree-spacer:nth-last-child(2):before {
+		        font-family: fontawesome;
+			content: url('../public/imagenes/generales/hoja.png');;
+		}
+	</style>
+	<style src="../public/Estilo.css" />
+	<script src="/public/progress.js" />
+	<window id="wdwIndex" title="" height="100%" width="100%"
+		border="0" apply="security.controlador.CArbol">
+		<borderlayout height="100%" style="background-color:#fff;">
+			<north height="12%" class="banner">
+				<hbox width="100%" widths="12%,55%,33%">
+					<vbox width="100%">
+						
+					</vbox>
+					<div align="center" width="100%">
+						<separator />
+						<separator />
+						<separator />
+						<hbox>
+							<label style="font-size:24px;color:white;font-weight: bold"
+								value="SEGURIDAD GENERAL" />
+						</hbox>
+					</div>
+					<div align="center" width="100%">
+						<hbox height="100%" width="100%">
+							<vbox height="100%" width="100%">
+								<separator />
+								<image id="imagenes" width="60px" height="55px" />
+							</vbox>
+							<separator />
+							<vbox>
+								<separator />
+								<label style="color: white;font-weight: bold"
+									value="Usuario: ${desktop.execution.userPrincipal.name}" />
+								<a href="../j_spring_security_logout" style="color: white">
+									<space />
+									<label value="Cerrar Sesion" />
+								</a>
+								<a style="color: white">
+									<space />
+									<label id="lblEditarCuenta" value="Editar Cuenta" />
+									<!-- onClick='contenido.src="../vistas/seguridad/VEditarUsuario.zul"' -->
+								</a>
+							</vbox>
+							<separator />
+							<separator />
+							<separator />
+							<separator />
+							<separator />
+							<vbox>
+								<listbox style="border:none" width="200px" id="ltbRoles">
+									<template name="model">
+										<listitem>
+											<listcell
+												style="border:none;font-size:14px;color:white;font-weight: bold"
+												class="gruposUsuario" label="${each.nombre}">
+											</listcell>
+										</listitem>
+									</template>
+								</listbox>
+							</vbox>
+						</hbox>
+					</div>
+				</hbox>
+			</north>
+			<west title="Menú" id="west" size="22%" splittable="true"
+				collapsible="true" autoscroll="true">
+				<tree id="arbolMenu" width="99%">
+					<template name="model">
+						<treeitem context="menupopup">
+							<treerow>
+								<treecell id="${each.index}" label="${each.label}" />
+							</treerow>
+						</treeitem>
+					</template>
+				</tree>
+			</west>
+			<center border="none">
+				<borderlayout sclass="complex-layout">
+					<center
+						border="none" autoscroll="true">
+						<tabbox width="100%" id="tabBox">
+							<tabs context="editPopup">
+								<tab visible="false">Tab A</tab>
+								<tab id="tab" label="+" visible="false">
+								</tab>
+							</tabs>
+							<tabpanels>
+								<tabpanel>
+									<include id="contenido"></include>
+								</tabpanel>
+							</tabpanels>
+						</tabbox>
+					</center>
+				</borderlayout>
+			</center>
+			<south class="banner" border="0" height="3%" collapsible="false">
+				<div align="center" sclass="footer">
+					<separator />
+					<label style="padding-center:35%;color: white"
+						value="© 2015 BIZAPPS C.A | Todos los derechos reservados | Desarrollado por BIZAPPS,C.A">
+					</label>
+				</div>
+			</south>
+		</borderlayout>
+		<menupopup id="editPopup">
+			<menuitem id="mnuItem" label="Cerrar Todas" />
+		</menupopup>
+	</window>
+</zk>

@@ -1,0 +1,58 @@
+<zk>
+	<style src="/public/Estilo.css" />
+	<div id="divGrupo" apply="security.controlador.CGrupo">
+		<groupbox width="auto" mold="3d" title="Grupo (VGrupo)">
+			<div id="botoneraGrupo" />
+			<separator />
+			<groupbox id="gpxRegistro" width="auto" class ="azul" title="" open="false">
+				<caption label="Añadir"  style="font-weight:bold; font-size: 13px"
+					tooltiptext="Presione para Registrar un Nuevo Grupo" />
+				<separator />
+				<grid>
+					<columns visible="false">
+						<column label="" width="28%" />
+						<column label="" width="48%" />
+						<column label="" width="6%" />
+						<column label="" width="18%" />
+					</columns>
+					<rows>
+						<row>
+							<hbox>
+								<label value="Nombre del Grupo :" class="etiqueta" />
+								<space />
+								<label value="*" style="font-weight:bold;color:red">
+								</label>
+							</hbox>
+							<textbox id="txtNombreGrupo" tooltiptext="Ingrese el Nombre del Grupo (nombre)" />
+							<hbox />
+							<hbox />
+						</row>
+					</rows>
+				</grid>
+				<separator />
+				<hbox width="100%">
+					<groupbox width="100%" title="Funcionalidades Disponibles" class="blanco">
+						<tree id="treeGrupo" width="99%">
+							<template name="model">
+								<treeitem context="menupopup" open="true">
+									<treerow>
+										<treecell context="${each.index}" label="${each.label}" />
+									</treerow>
+								</treeitem>
+							</template>
+						</tree>
+					</groupbox>
+				</hbox>
+				<separator />
+			</groupbox>
+			<separator />
+			<groupbox id="gpxDatos" class="azul" width="auto">
+				<caption label="Registros" style="font-weight:bold; font-size: 13px;"
+					tooltiptext="Presione para Visualizar los Grupos Registrados" />
+				<div id="divCatalogoGrupo" tooltiptext="Seleccione el Grupo para Realizar una Accion" />
+				<separator />
+				<separator />
+			</groupbox>
+		</groupbox>
+	</div>
+</zk>

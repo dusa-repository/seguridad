@@ -1,0 +1,122 @@
+<zk>
+	<style src="/public/Estilo.css" />
+	<div id="divUsuario" width="100%"  apply="security.controlador.CUsuario">
+		<groupbox mold="3d" width="auto" title="Usuario">
+			<div id="botoneraUsuario" />
+			<groupbox id="gpxRegistro" class="azul" width="auto" title="">
+				<caption label="Nuevo" style="font-weight:bold"
+					tooltiptext="Presione para ingresar los Usuarios" />
+				<separator />
+				<grid width="100%">
+					<columns visible="false">
+						<column label="" width="25%" />
+						<column label="" width="25%" />
+						<column label="" width="25%" />
+						<column label="" width="25%" />
+					</columns>
+					<rows>
+						<row>
+							<hbox>
+								<label class="etiqueta" value="Login de Usuario:" />
+								<space />
+								<label value="*" style="font-weight:bold;color:red" />
+							</hbox>
+							<textbox id="txtLoginUsuario" hflex="1" maxlength="50"
+								tooltiptext="Ingrese el Login del Usuario" />
+							<hbox />
+							<hbox />
+						</row>
+						<row>
+							<hbox>
+								<label class="etiqueta" value="Contraseña" />
+								<space />
+								<label value="*" style="font-weight:bold;color:red" />
+							</hbox>
+							<textbox id="txtPasswordUsuario" hflex="1" maxlength="256"
+								tooltiptext="Ingrese la Contraseña del Usuario" />
+							<hbox>
+								<label class="etiqueta" value="Reescriba la contraseña:" />
+								<space />
+								<label value="*" style="font-weight:bold;color:red" />
+							</hbox>
+							<textbox id="txtPassword2Usuario" hflex="1" maxlength="256"
+								tooltiptext="Reescriba la contraseña del Usuario" />
+						</row>
+						<row>
+							<hbox>
+								<label class="etiqueta" value="Nombre:" />
+								<space />
+								<label value="*" style="font-weight:bold;color:red" />
+							</hbox>
+							<textbox id="txtNombre" hflex="1" maxlength="100"
+								tooltiptext="Ingrese el Nombre del Usuario" />
+							<hbox>
+								<label class="etiqueta" value="Apellido:" />
+								<space />
+								<label value="*" style="font-weight:bold;color:red" />
+							</hbox>
+							<textbox id="txtApellido" hflex="1" maxlength="100"
+								tooltiptext="Ingrese el Apellido del Usuario" />
+						</row>
+						<row>
+							<hbox>
+								<label class="etiqueta" value="Correo:" />
+								<space />
+								<label value="*" style="font-weight:bold;color:red" />
+							</hbox>
+							<textbox id="txtCorreo" hflex="1" maxlength="50"
+								tooltiptext="Ingrese el Correo Electronico del Usuario (ejemplo@ejemplo.com)" />
+							<button
+								style="	background: #952C2C;font-size: 13px;color: white;cursor: pointer;width: 95px;height: 29px;	-webkit-border-radius: 0.7em;-moz-border-radius: 0.7em;	border-radius: 0.7em;"
+								upload="true" image="/public/imagenes/botones/cargar.png" id="fudImagenUsuario"
+								label="Foto">
+							</button>
+							<image id="imagen" width="50px" height="50px" />
+						</row>
+						<row>
+							<cell colspan="4">
+								<label class="etiqueta" value="Seleccione los grupos que tendra el usuario" />
+							</cell>
+						</row>
+					</rows>
+				</grid>
+				<hbox>
+					<listbox id="ltbGruposDisponibles" height="150px"
+						emptyMessage="No hay Grupos registrados">
+						<template name="model">
+							<listitem>
+								<listcell label="${each.nombre}">
+								</listcell>
+							</listitem>
+						</template>
+					</listbox>
+					<vbox>
+						<button class="pasar" id="pasar1"
+							image="/public/imagenes/botones/adelante.png" tooltiptext="Agregar Grupos"
+							width="30px" />
+						<separator />
+						<button class="pasar" id="pasar2"
+							image="/public/imagenes/botones/atras.png" tooltiptext="Quitar Grupos"
+							width="30px" />
+					</vbox>
+					<listbox id="ltbGruposAgregados" height="150px"
+						emptyMessage="No ha Seleccionado ningun Grupo" checkmark="true">
+						<template name="model">
+							<listitem>
+								<listcell label="${each.nombre}">
+								</listcell>
+							</listitem>
+						</template>
+					</listbox>
+				</hbox>
+			</groupbox>
+			<separator />
+			<groupbox class="azul" id="gpxDatos" width="auto" title="">
+				<caption label="Registros" style="font-weight:bold"
+					tooltiptext="Presione para ver los Usuarios" />
+				<separator />
+				<div id="catalogoUsuario" tooltiptext="Seleccione el usuario para Realizar una Accion" />
+			</groupbox>
+		</groupbox>
+	</div>
+</zk>

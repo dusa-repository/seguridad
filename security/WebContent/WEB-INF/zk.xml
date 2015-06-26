@@ -1,0 +1,33 @@
+<zk>
+	<session-config>
+		<device-type>ajax</device-type>
+		<timeout-message>Sesion Caducada, por favor Actualice el Navegador
+		</timeout-message>
+	</session-config>
+
+	<library-property>
+		<name>org.zkoss.zul.theme.fontSizeM</name>
+		<value>12px</value>
+	</library-property>
+
+	<library-property>
+		<name>org.zkoss.zul.theme.fontSizeS</name>
+		<value>10px</value>
+	</library-property>
+
+	<library-property>
+		<name>org.zkoss.zul.progressbox.position</name>
+		<value>center,center</value>
+	</library-property>
+	
+	<library-property>
+		<name>org.zkoss.zul.progressbox.mask</name>
+		<value>true</value>
+	</library-property>
+	
+	<library-property>
+		<name>org.zkoss.zul.progressbox.msg</name>
+		<value>"Por Favor, Espere..."</value>
+	</library-property>
+
+</zk>
