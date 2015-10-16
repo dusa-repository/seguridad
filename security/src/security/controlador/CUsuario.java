@@ -388,7 +388,7 @@ public class CUsuario extends CSecurity {
 	private void mostrarCatalogo() {
 		listaGeneral = servicioUsuarioSeguridad.buscarTodos();
 		catalogo = new SecurityCatalogo<UsuarioSeguridad>(catalogoUsuario, "Usuario",
-				listaGeneral, false, false, "Cedula", "Correo", "Nombre",
+				listaGeneral, false, false, "Login", "Correo", "Nombre",
 				"Apellido", "Estado") {
 
 			/**

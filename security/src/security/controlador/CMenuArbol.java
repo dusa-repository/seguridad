@@ -403,7 +403,6 @@ public class CMenuArbol extends CSecurity {
 						if (arbol.getManejo() == 1)
 							version = "Si";
 					if (arbol.getOrden() != null)
-						if (arbol.getOrden() == 1)
 							orden = arbol.getOrden();
 					if (arbol.getMenu() != null)
 						if (arbol.getMenu())
@@ -436,7 +435,6 @@ public class CMenuArbol extends CSecurity {
 					if (arbol.getManejo() == 1)
 						version = "Si";
 				if (arbol.getOrden() != null)
-					if (arbol.getOrden() == 1)
 						orden = arbol.getOrden();
 				if (arbol.getMenu() != null)
 					if (arbol.getMenu())

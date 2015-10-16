@@ -32,23 +32,16 @@ public class SArbol {
 
 	public List<Arbol> buscarOrdenados() {
 		List<String> ordenar = new ArrayList<String>();
+		ordenar.add("padre");
 		ordenar.add("orden");
 		Sort o = new Sort(Sort.Direction.ASC, ordenar);
 		return arbolDAO.findAll(o);
 	}
 
-	 public List<Arbol> buscarPorNombreArbol(String nombre) {
-		 List<Arbol> arbol = new ArrayList<Arbol>();
-	 arbol = arbolDAO.findByNombre(nombre);
-	 return arbol;
-	 }
-
-	public List<Arbol> ordenarPorID(ArrayList<Long> ids) {
-
-		List<Arbol> arboles;
-		arboles = arbolDAO.buscar(ids);
-		return arboles;
-
+	public List<Arbol> buscarPorNombreArbol(String nombre) {
+		List<Arbol> arbol = new ArrayList<Arbol>();
+		arbol = arbolDAO.findByNombre(nombre);
+		return arbol;
 	}
 
 	public Arbol buscarPorId(Long id) {
@@ -73,7 +66,11 @@ public class SArbol {
 	}
 
 	public List<Arbol> ordenarPorOrden(ArrayList<Long> ids) {
-		return arbolDAO.findByIdArbolInOrderByOrdenAsc(ids);
+		List<String> ordenar = new ArrayList<String>();
+		ordenar.add("padre");
+		ordenar.add("orden");
+		Sort o = new Sort(Sort.Direction.ASC, ordenar);
+		return arbolDAO.findByIdArbolIn(ids, o);
 	}
 
 }
